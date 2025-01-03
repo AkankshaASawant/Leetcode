@@ -1,0 +1,25 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        # Split sentence into list of words
+        words = s.split(" ")
+        
+        # Check if pattern and words have same length
+        if len(pattern) != len(words): 
+            return False
+        
+        # Maps to track character-to-word and word-to-character relationships
+        CharToWord = {}
+        WordToChar = {}
+
+        # Iterate through pattern characters and words simultaneously
+        for c, w in zip(pattern, words): 
+            # Check if char already mapped to a different word
+            if c in CharToWord and CharToWord[c] != w: 
+                return False
+            # Check if word already mapped to a different char
+            if w in WordToChar and WordToChar[w] != c: 
+                return False
+            # Add new mappings
+            CharToWord[c] = w
+            WordToChar[w] = c
+        return True
