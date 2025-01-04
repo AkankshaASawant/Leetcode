@@ -1,0 +1,8 @@
+class Solution:
+    def canWinNim(self, n: int) -> bool:
+        # If number of stones is divisible by 4, current player will lose
+        if (n%4==0): 
+            return False
+        # Otherwise, current player can win by taking appropriate number of stones
+        else: 
+            return True
