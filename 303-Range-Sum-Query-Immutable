@@ -1,0 +1,12 @@
+class NumArray:
+    def __init__(self, nums: List[int]):
+        # Create prefix sum array with an extra 0 at the start
+        self.lst = [0] * (len(nums) + 1)
+        # Build prefix sum array where each element is sum of all previous numbers
+        for i in range(0, len(nums)): 
+            self.lst[i+1] = self.lst[i] + nums[i]
+
+    def sumRange(self, left: int, right: int) -> int:
+        # Return sum of range by subtracting prefix sums
+        # lst[right+1] has sum up to right, lst[left] has sum up to left-1
+        return self.lst[right+1] - self.lst[left]
