@@ -1,0 +1,14 @@
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
+        # Check if the input number is less than 1, return False if true
+        if (n < 1): 
+            return False
+
+        # Calculate the logarithm base 3 of the number using the change of base formula
+        x = math.log10(n) / math.log10(3)
+
+        # Check if the result is an integer (i.e., x modulo 1 is 0)
+        if (x % 1 == 0): 
+            return True  # n is a power of 3
+        else: 
+            return False  # n is not a power of 3
