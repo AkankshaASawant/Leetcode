@@ -1,0 +1,16 @@
+class Solution:
+    def isPowerOfFour(self, n: int) -> bool:
+        # One-line solution using logarithm: 
+        # Checks if n>0 and if log base 4 of n is an integer
+        return n > 0 and log(n, 4) % 1 == 0
+
+        # Recursive solution (unreachable due to return above)
+        if n == 1: 
+            return True
+
+        # Handle non-positive numbers and numbers not divisible by 4
+        if n <= 0 or n % 4:  
+            return False
+
+        # Recursively divide by 4 until reaching 1
+        return self.isPowerOfFour(n // 4)  
