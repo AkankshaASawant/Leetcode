@@ -1,4 +1,4 @@
-class Solution:
+class Solution: 
     def wordPattern(self, pattern: str, s: str) -> bool:
         # Split sentence into list of words
         words = s.split(" ")
