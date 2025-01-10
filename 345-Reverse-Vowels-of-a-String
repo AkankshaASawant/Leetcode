@@ -1,0 +1,28 @@
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        # Convert string to list for easier character swapping
+        lst = list(s)
+        # Create a set of vowels (both lowercase and uppercase)
+        vowel = set('aeiouAEIOU')
+        # Initialize two pointers at start and end
+        l = 0
+        r = len(lst) - 1
+        
+        while(l < r):
+            # Move left pointer until we find a vowel
+            while(l <= r and lst[l] not in vowel):
+                l += 1
+            # Move right pointer until we find a vowel    
+            while(l <= r and lst[r] not in vowel):
+                r -= 1
+            # Break if pointers have crossed
+            if(l > r):
+                break
+            # Swap the vowels
+            lst[l], lst[r] = lst[r], lst[l]
+            # Move both pointers inward
+            l += 1
+            r -= 1
+
+        # Convert list back to string
+        return ''.join(lst)
