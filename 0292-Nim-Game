@@ -6,3 +6,4 @@ class Solution:
         # Otherwise, current player can win by taking appropriate number of stones
         else: 
             return True
+
