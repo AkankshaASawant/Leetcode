@@ -10,3 +10,4 @@ class NumArray:
         # Return sum of range by subtracting prefix sums
         # lst[right+1] has sum up to right, lst[left] has sum up to left-1
         return self.lst[right+1] - self.lst[left]
+
