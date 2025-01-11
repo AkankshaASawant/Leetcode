@@ -1,0 +1,17 @@
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # Convert first array to a set for O(1) lookups
+        seen = set(nums1)
+        
+        # Store intersection results
+        res = []
+        
+        # Check each number in second array
+        for n in nums2:
+            # If number exists in set, it's in both arrays
+            if n in seen:
+                res.append(n)
+                # Remove from set to handle duplicates
+                seen.remove(n)
+        
+        return res
