@@ -12,3 +12,4 @@ class Solution:
             return True  # n is a power of 3
         else: 
             return False  # n is not a power of 3
+
