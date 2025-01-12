@@ -1,0 +1,15 @@
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # Initialize empty list to store intersection elements
+        result = []
+
+        # Loop through each element in first array
+        for i in nums1: 
+            # Check if element exists in second array
+            if (i in nums2): 
+                # Add element to result if found
+                result.append(i)
+                # Remove element from nums2 to handle duplicates correctly
+                nums2.remove(i)
+
+        return result
