@@ -1,0 +1,10 @@
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+        # Calculate the square root of the input number
+        squareRoot = num ** 0.5
+        
+        # Check if square root is a whole number by comparing with its integer value
+        if (int(squareRoot) == squareRoot): 
+            return True
+        else: 
+            return False
