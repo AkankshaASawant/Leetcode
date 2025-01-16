@@ -1,0 +1,19 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        # Dictionary to store character frequencies
+        count = {}
+        
+        # Count frequency of each character in string
+        for i in s: 
+            if (i not in count): 
+                count[i] = 1
+            else: 
+                count[i] += 1
+        
+        # Find first character with frequency 1
+        for idx,ch in enumerate(s): 
+            if (count[ch] == 1): 
+                return idx
+        
+        # Return -1 if no unique character found
+        return -1
