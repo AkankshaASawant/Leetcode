@@ -1,0 +1,12 @@
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        # Initialize variable to store XOR result
+        result = 0
+        
+        # XOR all characters from both strings
+        # Since XOR of same chars cancels out, we'll be left with the extra char
+        for char in s+t: 
+            result = result ^ ord(char)
+            
+        # Convert ASCII value back to character and return
+        return chr(result)
