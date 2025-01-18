@@ -1,0 +1,16 @@
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        def chk(s1, s2, a, b): 
+            # Base cases
+            if a < 0:  # Processed all chars in s1
+                return True
+            if b < 0:  # Processed all chars in s2
+                return False
+            
+            # If current chars match, check remaining chars
+            if s1[a] == s2[b]:
+                return chk(s1, s2, a-1, b-1)
+            # If no match, keep checking s1 against remaining chars in s2
+            return chk(s1, s2, a, b-1)
+        
+        return chk(s, t, len(s)-1, len(t)-1)
