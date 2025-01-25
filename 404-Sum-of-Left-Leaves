@@ -1,0 +1,25 @@
+class Solution:
+    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
+        # Initialize total sum of left leaves to 0
+        self.totalSum = 0
+        
+        def findSum(node, state): 
+            # Base case: if node is None, return
+            if(node == None): 
+                return
+            
+            # Check if current node is a leaf node
+            if(node.left == None and node.right == None): 
+                # If it's a left leaf (state == -1), add its value to total sum
+                if(state == -1): 
+                    self.totalSum += node.val
+            
+            # Recursively traverse left child (pass -1 to mark as left child)
+            findSum(node.left, -1)
+            # Recursively traverse right child (pass 1 to mark as right child)
+            findSum(node.right, 1)
+        
+        # Start traversal from root with initial state 0
+        findSum(root, 0)
+        # Return total sum of left leaves
+        return self.totalSum
