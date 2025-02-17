@@ -1,0 +1,18 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        # Set to keep track of unpaired characters
+        seen = set()
+        # Counter for length of palindrome
+        res = 0
+
+        for c in s:
+            # If character is already in set, we found a pair
+            if c in seen:  # Fixed: changed 'is' to 'in'
+                seen.remove(c)
+                res += 2  # Add 2 to length for the pair
+            else:
+                # Add new character to set
+                seen.add(c)
+
+        # If we have any unpaired characters left, we can use one as center
+        return res + 1 if seen else res
