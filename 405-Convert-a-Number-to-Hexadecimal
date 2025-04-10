@@ -1,5 +1,5 @@
 class Solution:
-    def toHex(self, num: int) -> str:
+    def toHex(self, num: int) -> str: 
         ans = []
         # Dictionary for mapping hex values 10-15 to letters a-f
         dic = {10:"a", 11:"b", 12:"c", 13:"d", 14:"e", 15:"f"}
