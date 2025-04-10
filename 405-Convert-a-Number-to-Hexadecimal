@@ -1,0 +1,29 @@
+class Solution:
+    def toHex(self, num: int) -> str:
+        ans = []
+        # Dictionary for mapping hex values 10-15 to letters a-f
+        dic = {10:"a", 11:"b", 12:"c", 13:"d", 14:"e", 15:"f"}
+        
+        # Handle edge case of zero
+        if num == 0: 
+            return "0"
+            
+        # Handle negative numbers using two's complement representation
+        if num < 0: 
+            num = num + 2**32 
+            
+        # Convert to hex by repeatedly dividing by 16
+        while num > 0: 
+            digit = num % 16  # Get remainder (current hex digit)
+            num = num // 16   # Integer division for next iteration
+            
+            # Convert digit to appropriate character (a-f for 10-15)
+            if digit > 9 and digit < 16: 
+                digit = dic[digit]
+            else: 
+                digit = str(digit)
+                
+            ans.append(digit)
+            
+        # Reverse the digits to get correct order and join into string
+        return "".join(ans[::-1])
