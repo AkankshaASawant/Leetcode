@@ -1,0 +1,27 @@
+from typing import List  # Import List type hint for specifying return type of the function
+
+class Solution:
+    def fizzBuzz(self, n: int) -> List[str]:
+        # Initialize an empty list to store the result
+        output = []
+
+        # Loop through numbers from 1 to n (inclusive)
+        for i in range(1, n + 1):  
+            # Check if the number is divisible by both 3 and 5
+            if i % 3 == 0 and i % 5 == 0:
+                ans = "FizzBuzz"  # If divisible by both, append "FizzBuzz"
+            elif i % 3 == 0:
+                ans = "Fizz"  # If only divisible by 3, append "Fizz"
+            elif i % 5 == 0:
+                ans = "Buzz"  # If only divisible by 5, append "Buzz"
+            else:
+                ans = str(i)  # If not divisible by 3 or 5, convert the number to string
+
+            # Append the result to the output list
+            output.append(ans)
+
+        # Print the final list (for debugging or output purposes)
+        print(output)
+        
+        # Return the output list
+        return output
