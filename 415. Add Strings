@@ -1,0 +1,29 @@
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        # Initialize pointers at the end of both strings
+        i, j = len(num1) - 1, len(num2) - 1
+        
+        carry = 0  # Initialize carry
+        result = []  # Store digits of sum
+        
+        # Process both strings from right to left (as we do in manual addition)
+        while i >= 0 or j >= 0 or carry:
+            # Get current digits (or 0 if we've gone past the start)
+            digit1 = int(num1[i]) if i >= 0 else 0
+            digit2 = int(num2[j]) if j >= 0 else 0
+            
+            # Calculate sum of current digits plus carry
+            current_sum = digit1 + digit2 + carry
+            
+            # Update carry for next position
+            carry = current_sum // 10
+            
+            # Add current digit to result
+            result.append(str(current_sum % 10))
+            
+            # Move pointers
+            i -= 1
+            j -= 1
+        
+        # Return result in correct order (reverse and join)
+        return ''.join(reversed(result))
