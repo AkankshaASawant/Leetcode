@@ -1,0 +1,17 @@
+class Solution:
+    def countSegments(self, s: str) -> int:
+        # Initialize counter for word segments
+        count = 0
+        
+        # Iterate through each character in the string
+        for i in range(len(s)): 
+            # Check if current character is the start of a new segment:
+            # Either it's the first character in the string (i == 0)
+            # OR the previous character was a space
+            # AND the current character is not a space
+            if (i == 0 or s[i - 1] == " ") and s[i] != " ": 
+                # Increment segment counter when a new segment starts
+                count += 1
+                
+        # Return the total number of segments found
+        return count
